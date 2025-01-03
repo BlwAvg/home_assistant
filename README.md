@@ -54,6 +54,6 @@ wifi:
   on_disconnect:
     - script.execute: draw_display
 
-#mdns:                                  ### I have this disabled, I dont use mdns. I use ICMP. I have this disabled in the config for general use.
+#mdns:                                  ### I have this disabled, I dont use mdns. I use ICMP. I have this commented this out from this configfuration file because I assume my setup is more niche, just left it for reference.
 #  disabled: false
 ```
