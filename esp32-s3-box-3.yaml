@@ -107,6 +107,28 @@ button:
     id: factory_reset_btn
     internal: true
 
+## ADDED Temp and Humidity Sensor
+i2c:
+  - id: bus_a
+    sda: GPIO08
+    scl: GPIO18
+    scan: true
+
+  - sda: GPIO41
+    scl: GPIO40
+    id: bus_b
+
+sensor:
+  - platform: aht10
+    i2c_id: bus_b
+    variant: AHT20
+    temperature:
+      name: "Temperature"
+    humidity:
+      name: "Humidity"
+    update_interval: 1s
+## END Temp and Humidity Sensor
+
 binary_sensor:
   - platform: gpio
     pin:
