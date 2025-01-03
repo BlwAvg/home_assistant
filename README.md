@@ -1,7 +1,7 @@
 # ESP32-S3-Box-3 
 Home Assistant configuration for microwake word dectection (wake word on device). This includes enabling the radar, tempurature, humidity, and battery. I have no use for the IR, but if someone else needs it feel free to add it.
 
-Here is my config on my local device currently**
+Below is my ESP Home config on my device. This overrides specifics in the main YAML file. I wanted to keep the source as close to the original as possible and just add features.
 
 ```
 ---
