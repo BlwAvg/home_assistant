@@ -1,5 +1,5 @@
-# ESP32-S3-Box-3 
-Home Assistant configuration for micro wake word dectection (wake word processed on device). This includes enabling the radar, tempurature, humidity, and battery. I have no use for the IR, but if someone else needs it feel free to add it. This is pulled from multiple forum posts.
+# ESP32-S3-Box-3
+Home Assistant configuration for on-device micro wake word detection. This setup includes radar, temperature, humidity, and battery monitoring. IR support is excluded but can be added if needed. The configuration is based on multiple forum posts, with deviations from the [official configuration](https://github.com/esphome/wake-word-voice-assistants/blob/main/esp32-s3-box-3/esp32-s3-box-3.yaml) clearly marked. Search for "##" in the yaml file to locate changes.
 
 ## Sources
 - [Glyphs and Compile Fix](https://community.home-assistant.io/t/compiling-esp32-s3-box-3-fails-and-gives-failed-config-font-is-missing-791-glyphs/797536/28)
