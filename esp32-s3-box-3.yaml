@@ -108,51 +108,50 @@ button:
     internal: true
 
 ## ADDED Temp, Humidity and Battery Sensors
-i2c:
-  - id: bus_a    # Humidity Sensor
+i2c: # defines the I2C buses for temp and humdity.
+  - id: bus_humdity
     sda: GPIO08
     scl: GPIO18
     scan: true
-
-  - sda: GPIO41  # Temp Sensor
+  - id: bus_temp
+    sda: GPIO41
     scl: GPIO40
-    id: bus_b
 
 sensor:
-  - platform: aht10
-    i2c_id: bus_b
+  - platform: aht10 # Temp and Humdity Sesnsor
+    i2c_id: bus_temp
     variant: AHT20
     temperature:
       name: "Temperature"
     humidity:
       name: "Humidity"
     update_interval: 1s
- - platform: adc  # Battery Sensor
-   pin: GPIO10
-   name: "Battery voltage"
-   id: battery_voltage
-   unit_of_measurement: "V"
-   accuracy_decimals: 3
-   device_class: "voltage"
-   entity_category: "diagnostic"
-   disabled_by_default: true
-   update_interval: 30s
-   attenuation: auto
-   filters:
-       - multiply: 4.01
- - platform: copy # This displays the correct battery level percentage.
-   source_id: battery_voltage
-   name: "Battery level"
-   unit_of_measurement: "%"
-   accuracy_decimals: 1
-   device_class: "battery"
-   entity_category: "diagnostic"
-   filters:
-     - lambda: return (x - 3.1) / (4.14 - 3.1) * 100;
-     - clamp:
-         min_value: 0
-         max_value: 100
-         ignore_out_of_range: true
+sensor: # Battery Volatage Sensor
+  - platform: adc
+    pin: GPIO10
+    name: "Battery voltage"
+    id: battery_voltage
+    unit_of_measurement: "V"
+    accuracy_decimals: 3
+    device_class: "voltage"
+    entity_category: "diagnostic"
+    update_interval: 30s
+    attenuation: 2.5db
+    filters:
+        - multiply: 4
+  - platform: copy # Battery Percentage Sensor
+    source_id: battery_voltage
+    name: "Battery level"
+    unit_of_measurement: "%"
+    accuracy_decimals: 1
+    device_class: "battery"
+    entity_category: "diagnostic"
+    filters:
+      - lambda: return (x - 2.65) / (4.2 - 2.65) * 100;
+      - clamp:
+          min_value: 0
+          max_value: 100
+          ignore_out_of_range: true
 ## END Temp, Humidity and Battery Sensors
 
 binary_sensor:
