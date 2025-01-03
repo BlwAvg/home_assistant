@@ -63,7 +63,7 @@ wifi:
   networks:                             ## You can also add domain: under this to include a domain.
     - ssid: !secret wifi_ssid
       password: !secret wifi_password
-      hidden: true
+#      hidden: true                      ## Only needed if network is hiddend. I have this commented this out from this configfuration file because I assume my setup is more niche, just left it for reference.
   on_connect:
     - script.execute: draw_display
   on_disconnect:
