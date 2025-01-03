@@ -153,6 +153,7 @@ sensor:
           min_value: 0
           max_value: 100
           ignore_out_of_range: true
+# NOTE: The math assumes the battery voltage ranges from 2.5V (empty) to 4.2V (full).
 ## END Temp, Humidity and Battery Sensors
 
 binary_sensor:
