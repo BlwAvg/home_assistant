@@ -126,6 +126,7 @@ sensor:
     humidity:
       name: "Humidity"
     update_interval: 1s
+
   - platform: adc # Battery Volatage Sensor
     pin: GPIO10
     name: "Battery voltage"
@@ -136,8 +137,9 @@ sensor:
     entity_category: "diagnostic"
     update_interval: 30s
     attenuation: auto
-      filters:
-        - multiply: 4.01
+    filters:
+      - multiply: 4.01
+
   - platform: copy # Battery Percentage Sensor
     source_id: battery_voltage
     name: "Battery level"
