@@ -6,8 +6,10 @@ Home Assistant configuration for micro wake word dectection (wake word processed
 - [Humditiy and Temp Config](https://community.home-assistant.io/t/esp32-s3-box3/638287/106)
 - [Battery Config](https://community.home-assistant.io/t/esp32-s3-box3/638287/110?page=6)
 
-What is looks like on the HA Dashboard.
-![Sensor](/esp32-s3-box-3/sensors.png)
+HA Dashboard:
+
+![Sensor](/esp32-s3-box-3/Sensors.png)
+
 ![Config and Diagnostics](/esp32-s3-box-3/Config&Diagnostics.png)
 
 
