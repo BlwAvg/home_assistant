@@ -107,14 +107,14 @@ button:
     id: factory_reset_btn
     internal: true
 
-## ADDED Temp and Humidity Sensor
+## ADDED Temp, Humidity and Battery Sensors
 i2c:
-  - id: bus_a
+  - id: bus_a    # Humidity Sensor
     sda: GPIO08
     scl: GPIO18
     scan: true
 
-  - sda: GPIO41
+  - sda: GPIO41  # Temp Sensor
     scl: GPIO40
     id: bus_b
 
@@ -127,7 +127,33 @@ sensor:
     humidity:
       name: "Humidity"
     update_interval: 1s
-## END Temp and Humidity Sensor
+ - platform: adc  # Battery Sensor
+   pin: GPIO10
+   name: "Battery voltage"
+   id: battery_voltage
+   unit_of_measurement: "V"
+   accuracy_decimals: 3
+   device_class: "voltage"
+   entity_category: "diagnostic"
+   disabled_by_default: true
+   update_interval: 30s
+   attenuation: auto
+   filters:
+       - multiply: 4.01
+ - platform: copy # This displays the correct battery level percentage.
+   source_id: battery_voltage
+   name: "Battery level"
+   unit_of_measurement: "%"
+   accuracy_decimals: 1
+   device_class: "battery"
+   entity_category: "diagnostic"
+   filters:
+     - lambda: return (x - 3.1) / (4.14 - 3.1) * 100;
+     - clamp:
+         min_value: 0
+         max_value: 100
+         ignore_out_of_range: true
+## END Temp, Humidity and Battery Sensors
 
 binary_sensor:
   - platform: gpio
