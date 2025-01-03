@@ -8,7 +8,7 @@ Below is my ESP Home config on my device. This overrides specifics in the main Y
 substitutions:
   name: voice-assistant                 ## Name your device whatever you want
   friendly_name: Voice Assistant        ## ^^^^^^^^^^
-  micro_wake_word_model: hey_jarvis     ### Change to whatever you want.
+  micro_wake_word_model: hey_jarvis     ### Change to whatever [options are available](https://github.com/esphome/micro-wake-word-models). 
 
 packages:                               ### This pulls this repo for the full configuration.
   esphome.voice-assistant:
