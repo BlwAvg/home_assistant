@@ -4,6 +4,7 @@ Home Assistant configuration for microwake word dectection (wake word on device)
 - [Glyphs and Compile Fix](https://community.home-assistant.io/t/compiling-esp32-s3-box-3-fails-and-gives-failed-config-font-is-missing-791-glyphs/797536/28)
 - [Radar Config](https://github.com/esphome/feature-requests/issues/2475#issuecomment-1879449021)
 - [Humditiy and Temp Config](https://community.home-assistant.io/t/esp32-s3-box3/638287/106)
+- [Battery Config](https://community.home-assistant.io/t/esp32-s3-box3/638287/110?page=6)
 
 Below is my ESP Home config on my device. This overrides specifics in the main YAML file. I wanted to keep the source as close to the original as possible and just add features.
 
