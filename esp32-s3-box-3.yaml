@@ -173,6 +173,7 @@ binary_sensor:
           - ON for at least 10s
         then:
           - button.press: factory_reset_btn
+## Adds Radar Sensor
   - platform: gpio
     pin:
       number: GPIO21
@@ -197,6 +198,7 @@ binary_sensor:
             then:
               - switch.turn_off: mute
               - light.turn_on: led
+## Adds Radar Sensor
 
 output:
   - platform: ledc
@@ -523,6 +525,7 @@ script:
             - micro_wake_word.stop:
       - lambda: id(voice_assistant_phase) = ${voice_assist_not_ready_phase_id};
 
+## Adds Presesence Duration for Radar
 number:
   - platform: template
     name: "Presence duration"
@@ -537,7 +540,9 @@ number:
     unit_of_measurement: s
     entity_category: config
     mode: box
+## END Adds Presesence Duration for Radar
 
+## Adds Switch for Radar
 switch:
   - platform: template
     name: "Disable when absent"
@@ -546,6 +551,7 @@ switch:
     optimistic: true
     entity_category: config
     restore_mode: RESTORE_DEFAULT_ON
+## END Adds Switch for Radar
   - platform: template
     name: Mute
     id: mute
