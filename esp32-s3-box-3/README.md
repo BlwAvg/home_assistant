@@ -18,7 +18,7 @@ substitutions:
 packages:                               ### This pulls this repo for the full configuration.
   esphome.voice-assistant:
     url: https://github.com/BlwAvg/home_assistant
-    files: esp32-s3-box-3.yaml
+    files: esp32-s3-box-3/esp32-s3-box-3.yaml
     ref: main
     refresh: 1s
 
