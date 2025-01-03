@@ -199,7 +199,7 @@ binary_sensor:
             then:
               - switch.turn_off: mute
               - light.turn_on: led
-## Adds Radar Sensor
+## END Adds Radar Sensor
 
 output:
   - platform: ledc
