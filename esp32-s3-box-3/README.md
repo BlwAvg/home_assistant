@@ -8,7 +8,7 @@ Home Assistant configuration for micro wake word dectection (wake word processed
 
 What is looks like on the HA Dashboard.
 ![Sensor](/esp32-s3-box-3/sensors.png)
-![Sensor](/esp32-s3-box-3/Config&Diagnostics.png)
+![Config and Diagnostics](/esp32-s3-box-3/Config&Diagnostics.png)
 
 
 Below is my ESP Home config on my device. This overrides specifics in the main YAML file pulled from github. I wanted to keep the source as close to the original as possible and just add features. Hopefully someone else finds this useful.
