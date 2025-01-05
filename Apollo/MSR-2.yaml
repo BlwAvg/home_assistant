@@ -1,0 +1,54 @@
+---
+substitutions:
+  name: msr2
+  friendly_name: MSR2
+  device_description: Apollo MSR-2 - version ${version}.
+
+packages:
+  ApolloAutomation.MSR-2:
+    url: https://github.com/ApolloAutomation/MSR-2
+    files: Integrations/ESPHome/MSR-2.yaml
+    ref: main
+    refresh: 1s
+
+esphome:
+  name: "${name}"
+  friendly_name: "${friendly_name}"
+  comment: Apollo MSR-2
+  name_add_mac_suffix: false
+
+api:
+  encryption:
+    key: !secret msr2-api-key
+
+ota:
+  - platform: esphome
+    password: !secret msr2-ota-key
+
+wifi:
+  power_save_mode: LIGHT
+  networks:
+    - ssid: !secret wifi_ssid
+      password: !secret wifi_password
+      hidden: true
+  domain: .htp.dev
+
+mdns:
+  disabled: true
+
+# Will not work with BLE Proxy, but BLE Tracker works just fine.
+esp32_ble_tracker:
+
+binary_sensor:
+  - platform: ble_presence
+    ibeacon_uuid: !secret phone-uuid
+    ibeacon_major: !secret phone-major
+    ibeacon_minor: !secret phone-minor
+    timeout: 30s
+    min_rssi: -99
+    name: "Device"
+
+sensor:
+  - platform: ble_rssi
+    ibeacon_uuid: !secret phone-uuid
+    name: "Device RSSI"
