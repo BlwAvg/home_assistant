@@ -1,6 +1,6 @@
 # Configs
 - Air Quality - Turn on AC Fan
-  - Checks C02 from 3 sensors and VOCs from one sensor. If they reach a defined threshold, it will turn on the AC fan. 
+  - Checks C02 from three sensors and VOCs from one sensor. If they reach a defined threshold, it will turn on the AC fan. 
   - The sensors are an Awair, Apollo MSR-2 and MTR-1. The thermostat is an EcoBee3.
   - This automation will kick off if any sensor sets off the automation but won’t set the fan back to "auto" until all sensors are below the defined threshold.
   - There is a dead zone between turning on and off. That is intentional because I do not want the fan to keep flapping between "ON" and "Auto".
