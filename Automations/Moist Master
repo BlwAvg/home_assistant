@@ -1,0 +1,53 @@
+alias: Moist Master
+description: >-
+  Checks the Hygrometer to determine if the plug for the humidifier should be
+  turned on.
+triggers:
+  - type: humidity
+    device_id: Hygrometer
+    entity_id: Hygrometer_Humidity_Entity
+    domain: sensor
+    above: 48
+    below: 47.99
+    trigger: device
+  - minutes: /15
+    trigger: time_pattern
+conditions: []
+actions:
+  - choose:
+      - conditions:
+          - type: is_humidity
+            condition: device
+            device_id: Hygrometer
+            entity_id: Hygrometer_Humidity_Entity
+            domain: sensor
+            below: 47.99
+          - condition: time
+            after: "21:00:00"
+            before: "07:00:00"
+            weekday:
+              - sun
+              - mon
+              - tue
+              - wed
+              - thu
+              - fri
+              - sat
+        sequence:
+          - type: turn_on
+            device_id: Remote_Outlet
+            entity_id: Remote_Outlet_Entity
+            domain: switch
+      - conditions:
+          - type: is_humidity
+            condition: device
+            device_id: Hygrometer
+            entity_id: Hygrometer_Humidity_Entity
+            domain: sensor
+            above: 48
+        sequence:
+          - type: turn_off
+            device_id: Remote_Outlet
+            entity_id: Remote_Outlet_Entity
+            domain: switch
+mode: single

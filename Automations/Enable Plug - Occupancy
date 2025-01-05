@@ -1,0 +1,33 @@
+alias: Enable Plug - Occupancy
+description: "Enables an outlet based on whether or not the room is occupied"
+mode: single
+triggers:
+  - type: occupied
+    device_id: Radar_Device
+    entity_id: Radar_Occupancy
+    domain: binary_sensor
+    trigger: device
+  - type: not_occupied
+    device_id: Radar_Device
+    entity_id: Radar_Occupancy
+    domain: binary_sensor
+    trigger: device
+conditions: []
+actions:
+  - if:
+      - type: is_occupied
+        condition: device
+        device_id: Radar_Device
+        entity_id: Radar_Occupancy
+        domain: binary_sensor
+    then:
+      - type: turn_on
+        device_id: Power_Outlet
+        entity_id: Power_Outlet_Entity
+        domain: light
+    else:
+      - type: turn_off
+        device_id: Power_Outlet
+        entity_id: Power_Outlet_Entity
+        domain: light
+    enabled: true

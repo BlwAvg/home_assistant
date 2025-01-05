@@ -1,0 +1,38 @@
+alias: Auto Close Garage
+description: Close the garage door if someone left it open.
+mode: single
+triggers:
+  - entity_id:
+      - person.PersonA
+    from: home
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+    trigger: state
+  - entity_id:
+      - person.PersonB
+    from: home
+    for:
+      hours: 0
+      minutes: 15
+      seconds: 0
+    trigger: state
+conditions:
+  - condition: device
+    device_id: RATGDO
+    domain: cover
+    entity_id: RATGDO_Entity
+    type: is_open
+actions:
+  - data: {}
+    target:
+      entity_id: cover.ratgdo_door
+    action: cover.close_cover
+  - data:
+      message: The garage door is closing because it was left open.
+    action: notify.PersonA.Phone
+  - metadata: {}
+    data:
+      message: The garage door is closing because it was left open.
+    action: notify.PersonB_Phone
