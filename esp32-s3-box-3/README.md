@@ -3,7 +3,7 @@ Home Assistant configuration for on-device micro wake word detection. This setup
 
 Notes:
 - The "Disable When Absent" feature mutes the mic and turns off the screen when presence is not detected.
-- These sensors only exist on the [ESP32-S3-BOX-3-Sensor](https://www.espressif.com/en/news/ESP32-S3-BOX-3) dock.
+- These additional sensors only exist on the [ESP32-S3-BOX-3-Sensor](https://www.espressif.com/en/news/ESP32-S3-BOX-3) dock and not on the ESP32-S3-Box-3 screen.
 
 ## Sources
 - [Glyphs and Compile Fix](https://community.home-assistant.io/t/compiling-esp32-s3-box-3-fails-and-gives-failed-config-font-is-missing-791-glyphs/797536/28)
